@@ -26,6 +26,13 @@ public class AtmControllerTests {
     public void indexGetTest() throws Exception {
         mvc.perform(MockMvcRequestBuilders.get("/").accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
-                .andExpect(content().string(equalTo("Greetings!")));
+                .andExpect(content().string(equalTo("Welcome to the ATM!")));
+    }
+
+    @Test
+    public void asking_for_the_balance_returns_the_amount() throws Exception {
+        mvc.perform(MockMvcRequestBuilders.get("/balance?accountnum=123456789&pin=1234").accept(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk())
+                .andExpect(content().string(equalTo("{\"balance\":800.0,\"overdraft\":200.0}")));
     }
 }

@@ -36,6 +36,6 @@ public class AtmControllerIT {
     public void indexGetTest() throws Exception {
         ResponseEntity<String> response = template.getForEntity(base.toString(),
                 String.class);
-        assertThat(response.getBody(), equalTo("Greetings!"));
+        assertThat(response.getBody(), equalTo("Welcome to the ATM!"));
     }
 }

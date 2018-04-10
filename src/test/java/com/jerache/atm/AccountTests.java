@@ -2,6 +2,7 @@ package com.jerache.atm;
 
 import org.junit.Before;
 import org.junit.Test;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class AccountTests {
 
@@ -10,6 +11,11 @@ public class AccountTests {
     @Before
     public void setUp() {
         account = new Account(123456789, 1234, 800, 200);
+    }
+
+    @Test
+    public void getBalance_has_to_return_the_accounts_current_balance() {
+        assertThat(account.getBalance()).isEqualTo(800);
     }
 
     @Test(expected = Exception.class)

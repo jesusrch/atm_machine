@@ -7,7 +7,13 @@ public class Atm {
         this.deposit = deposit;
     }
 
-    public void withdraw(long account, int pin, double amount) throws Exception{
-        throw new Exception();
+    public void withdraw(long accountNumber, int pin, double amount) throws Exception{
+        if (amount > deposit) {
+            throw new Exception();
+        }
+        else {
+//            Account account = new Account(accountNumber, pin);
+//            account.withdraw(amount);
+        }
     }
 }
